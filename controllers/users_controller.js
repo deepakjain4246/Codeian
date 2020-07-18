@@ -53,5 +53,5 @@ const User=require('../models/user')
 
   //sign in and create the session 
   module.exports.createSession=function(req,res){
-    //TODO later
+    return res.redirect('/users/profile');
   }
