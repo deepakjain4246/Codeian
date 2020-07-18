@@ -3,10 +3,11 @@
 //   }
   
 const User=require('../models/user')
+
   module.exports.profile=function(req,res){
     return res.render('users_profile',{
       title:"Profile"
-    })
+    });
   }
   
   //render the sign up page
@@ -53,5 +54,29 @@ const User=require('../models/user')
 
   //sign in and create the session 
   module.exports.createSession=function(req,res){
-    //TODO later
+    
+    //steps to authenticate
+    //find user
+    User.findOne({email:req.body.email},function(err,user){
+      if(err){
+        console.log('error in finding user in signing-up') 
+        return;
+      }
+
+      //handle user found
+       if(user){
+           
+         //handle pass which doesnot match
+         if(user.password!=req.body.password){
+           return res.redirect('back');
+         }
+         //handle when pass match ...create a session
+          res.cookie('user_id',user.id);
+          return res.redirect('/users/profile');
+       }
+       //handle user not found
+       else{
+        return res.redirect('back');
+       }
+    })
   }
