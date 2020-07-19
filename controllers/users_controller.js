@@ -11,6 +11,11 @@ const User=require('../models/user')
   
   //render the sign up page
   module.exports.signUp=function(req,res){
+      
+    if(req.isAuthenticated()){     //restrict to go to profile page only.
+      return res.redirect('/users/profile')
+    }
+
     return res.render('user_sign_up',{
       title:"SignUp"
     })
@@ -18,6 +23,11 @@ const User=require('../models/user')
 
   //render the sign in page
   module.exports.signIn=function(req,res){
+
+    if(req.isAuthenticated()){
+      return res.redirect('/users/profile')
+    }
+
     return res.render('user_sign_in',{
       title:"SignIn"
     })
