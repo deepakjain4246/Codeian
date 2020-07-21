@@ -1,5 +1,6 @@
 #home-container{
     display: flex;
+    overflow: auto;
     #feed-post{
         width:80%;
         padding: 10px;

@@ -1,18 +1,12 @@
-<header>
-   Page Header
-<ul>
+<link rel="stylesheet" href="/css/header.css">
+<div id="header">
+   <h1> Codian</h1> &nbsp
     <% if (locals.user){ %>
-        <li><%=user.name%></li>
-        <li>
-            <a href='/users/sign-out'>Sign out</a>
-        </li>
+        <h1><%=user.name%></h1>
+        <div id="sign-out"><a href='/users/sign-out'>Sign out</a> </div>
    <% }else{%>
-      <li>
-          <a href="/users/sign-in">Sign In</a>
-      </li>
-      <li>
-        <a href="/users/sign-up">Sign Up</a>
-    </li>
+      <div id="sign-in"><a href="/users/sign-in">Sign In</a></div>
+      <div id="sign-up"><a href="/users/sign-up">Sign Up</a></div>
    <%}%>
-</ul>
-</header>
+ 
+</div>
