@@ -41,7 +41,7 @@ const User=require('../models/user')
 // });
 // }
 
-
+//optimizing by adding async and await.
 module.exports.home=async function(req,res){
 
   try{
