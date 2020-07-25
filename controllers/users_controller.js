@@ -77,11 +77,13 @@ const User=require('../models/user')
 
   //sign in and create the session 
   module.exports.createSession=function(req,res){
+    req.flash('success','Logged in successfully!');
     return res.redirect('/');
   }
 
   //destroy session
   module.exports.destroySession=function(req,res){
     req.logout();
+    req.flash('success','You have been logged out!');
     return res.redirect('/');
   }
