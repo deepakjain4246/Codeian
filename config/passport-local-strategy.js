@@ -6,7 +6,7 @@ const User=require('../models/user');
 //authentication using passport
 passport.use(new LocalStrategy({
     usernameField:'email',
-    passReqToCallback:true
+    passReqToCallback:true        //to use req in function
 },
 function(req,email,password,done){
 
