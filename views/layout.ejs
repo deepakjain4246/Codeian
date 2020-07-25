@@ -33,6 +33,16 @@
                 timeout:1500
             }).show();
             <%}%>
+
+            <%if(flash.error && flash.error.length>0){%>
+          new Noty({
+                theme:'relax',
+                type: 'error',
+                layout: 'topRight',
+                text: "<%=flash.error%>",
+                timeout:1500
+            }).show();
+            <%}%>
         </script>
     </body>
 </html>
