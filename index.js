@@ -28,6 +28,10 @@ app.use(cookieParser());
 app.use(expressLayouts);
 app.use(express.static('./assets'));
 
+//uploads path is available to browser now
+app.use('/uploads', express.static(__dirname + '/uploads'));
+
+
 //extract Styles and Scripts from sub pages into layout
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
