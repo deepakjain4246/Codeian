@@ -36,7 +36,8 @@ const User=require('../models/user')
    
           //saving the file path into avatar field in user
           if(req.file){
-
+              
+            //if file alredy exists it deletes the previous file.
             if(user.avatar){
             fs.unlinkSync(path.join(__dirname,'..',user.avatar));
             }
