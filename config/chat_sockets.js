@@ -16,6 +16,11 @@ socket.on('join_room',function(data){
 
 })
 
+//CHANGE::detect send msg and broadcast to everyone!
+socket.on('send-message',function(data){
+    io.in(data.chatroom).emit('receive_message',data);
+});
+
 })
 
 }
